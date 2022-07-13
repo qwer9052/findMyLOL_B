@@ -9,10 +9,15 @@ import java.util.NoSuchElementException;
 @RestControllerAdvice
 public class ApiExceptionHandler {
 
-//    @ExceptionHandler(NoSuchElementException.class)
-//    public ResponseEntity<CommonFailResponseDto> HandleMemberNotExistException(NoSuchElementException noSuchElementException){
-//        return ResponseEntity.status(400).body(new CommonFailResponseDto("1999", noSuchElementException.getMessage(), null));
-//    }
+    @ExceptionHandler(InvalidPayloadException.class)
+    public ResponseEntity<?> InvalidPayloadException(InvalidPayloadException invalidPayloadException){
+        return ResponseEntity.status(400).body(invalidPayloadException);
+    }
+
+    @ExceptionHandler(CustomException.class)
+    public ResponseEntity<?> CustomException(CustomException customException){
+        return ResponseEntity.status(400).body(customException);
+    }
 
 
     
